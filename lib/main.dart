@@ -1,5 +1,8 @@
+
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_testing/presentation/screens/home_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_testing/logic/bloc/counter_bloc.dart';
+import 'package:flutter_bloc_testing/presentation/screens/counter_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +17,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(title: 'Flutter Demo Home Page'),
+      home: BlocProvider<CounterScreenBloc>(
+        create: (context) => CounterScreenBloc(),
+        child: CounterScreen(title: 'Flutter Demo Home Page'),
+      ),
     );
   }
 }
