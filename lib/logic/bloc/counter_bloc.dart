@@ -16,7 +16,7 @@ class CounterScreenBloc extends Bloc<CounterEvent, CounterScreenState> {
 
   CounterScreenState get initialState => ShowCounterValue(counterValue);
 
-  CounterRepo get counterRepo => CounterRepoImpl();
+  CounterRepo get counterRepoImpl => CounterRepoImpl();
 
   @override
   Stream<CounterScreenState> mapEventToState(
@@ -34,7 +34,7 @@ class CounterScreenBloc extends Bloc<CounterEvent, CounterScreenState> {
     }
     if (event is RandomNumberValue) {
       yield LoadingCounter();
-      this.counterValue = await counterRepo.generateNegativeNumber();
+      this.counterValue = await counterRepoImpl.generateNegativeNumber();
       print("randomNumber call in bloc");
       yield ShowCounterValue(counterValue);
     }

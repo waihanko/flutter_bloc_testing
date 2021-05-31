@@ -39,7 +39,7 @@ class _CounterScreenState extends State<CounterScreen> {
       if (state is LoadingCounter) {
         print("triggered state");
 
-        ///!! Show Loading Screen
+        /// Show Loading Screen
         return buildLoadingScreen();
       } else if (state is ShowCounterValue) {
         print("SHOW COUNTER VALUE");
@@ -61,7 +61,7 @@ class _CounterScreenState extends State<CounterScreen> {
       children: <Widget>[
         Text(
           counterValue.toString(),
-          style: Theme.of(context).textTheme.display1,
+          style: Theme.of(context).textTheme.headline4,
         ),
         Padding(
           padding: const EdgeInsets.only(top: 100),
